@@ -57,9 +57,10 @@ def get_drink_two(current_user_token, id):
 @token_required
 def update_drink(current_user_token,id):
     drink = Drink.query.get(id) 
-    name = request.json['name']
-    drink_type = request.json['drink_type']
-    flavor_profile = request.json['flavor_profile']
+    print(request)
+    drink.name = request.json['name']
+    drink.drink_type = request.json['drink_type']
+    drink.flavor_profile = request.json['flavor_profile']
     user_token = current_user_token.token
 
     db.session.commit()
